@@ -66,3 +66,7 @@ dstport,protocol,tag
 With only 3 columns, and the header in the order of dstport, protocol and then tag.
 
 Assuming the flow logs and the lookup table are in this format, the program can write the correct counts to the output.txt file correctly.
+
+### Extra
+
+- [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to keyword (tcp, icmp, udp, etc.)
