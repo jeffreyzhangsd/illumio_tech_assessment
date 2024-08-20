@@ -5,7 +5,6 @@ def read_lookup_table(file_path):
     with open(file_path, 'r') as file:
         csv_reader = csv.reader(file)
         next(csv_reader)  # skip the table header row
-        csv_reader = list(csv_reader)
         for row in csv_reader:
             if len(row) < 3: continue # skip in case of not enough data
             dstport, protocol, tag = row
@@ -87,6 +86,8 @@ def main():
 
 # Test the function
 if __name__ == "__main__":
+    main()
+
     # test lookups
     # test_cases = [
     #     (25, 'tcp'),
@@ -100,9 +101,6 @@ if __name__ == "__main__":
     # for port, protocol in test_cases:
     #     tag = lookup_table.get((port, protocol), "Untagged")
     #     print(f"Port: {port}, Protocol: {protocol} -> Tag: {tag}")
-
-
-    main()
 
     # sample flow log entry
     # 2 123456789012 eni-0a1b2c3d 10.0.1.201 198.51.100.2 443 49153 6 25 20000 1620140761 1620140821 ACCEPT OK
@@ -122,4 +120,4 @@ if __name__ == "__main__":
     # action -> ACCEPT
     # log status -> OK
 
-    # items we grab - destination port, protocol, tag
+    # items to grab - destination port, protocol, tag
